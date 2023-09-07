@@ -1,0 +1,45 @@
+{
+  "name": "zarmazon",
+  "version": "1.0.0",
+  "description": "site ecommerce parodique mais bein reel",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec babel-node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "achat",
+    "boutique",
+    "shop",
+    "boncoin",
+    "annonce",
+    "parodique",
+    "onfon",
+    "accent",
+    "algerie",
+    "algerien",
+    "ds"
+  ],
+  "author": "world mouloud megacontrol",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.11",
+    "@babel/node": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "eslint": "^8.47.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "nodemon": "^3.0.1"
+  }
+}

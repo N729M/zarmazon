@@ -26,6 +26,9 @@ app.use(cors())
 
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
+app.get('/api/paypal/clientId', (req,res) =>{
+    res.send({clientId: config.PP_CLIENT_ID});
+});
 
 app.use('/public', express.static(path.join(__dirname, '/../frontend/dist/public')));
 app.use((req, res, next) => {

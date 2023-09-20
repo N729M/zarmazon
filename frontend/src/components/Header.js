@@ -3,7 +3,7 @@ import {getUserInfo} from '../localStorage';
 const Header = {
     
     render: async()=>{
-        const {name} = getUserInfo();
+        const {name, isAdmin} = getUserInfo();
     return `
     <nav id="primarynavbar">
     <a href="/#/">
@@ -15,6 +15,10 @@ const Header = {
     
     
     <ul style="display:flex;">
+        <li>
+        ${isAdmin?`<a class="navbar-element dashB" href="/#/dashboard">Dashboard </a>`:''}
+        </li>
+
         <li class="navbar-elements">
           <a href="/#/login"><button>Cou nexiant</button></a>
             <a href="/#/register"><button>Un scribciant</button></a>  
@@ -28,7 +32,9 @@ const Header = {
                 </div>
                 </div>
             </a>
+            
         </li>
+        
     </ul>
 </nav>
 <nav id="secondarynavbar">
@@ -39,7 +45,6 @@ const Header = {
         <li><a href="">houti</a></li>
         <li><a href="">botté</a></li>
         <li><a href="">dvd piratte</a></li>
-        <li><a href="">ordinature</a></li>
         <li><a href="">bondannonce</a></li>
         ${name ? `<li><a href="/#/profile">${name}</a></li>` : `<li><a href="/#/login">Mon profile</a></li>`}
     </ul>

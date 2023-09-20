@@ -1,19 +1,22 @@
-import HomeScreen from './screens/HomeScreen.js';
-import Error404Screen from './screens/Error404Screen.js';
-import ProductScreen from './screens/ProductScreen.js';
-import {parseRequestUrl, showLoading, hideLoading} from './utils.js' ;
-import CartScreen from './screens/CartScreen.js';
-import SigninScreen from './screens/SigninScreen.js';
-import Header from './components/Header.js';
-import RegisterScreen from './screens/RegisterScreen.js';
-import ProfileScreen from './screens/ProfileScreen.js';
-import ShippingScreen from './screens/ShippingScreen.js';
-import PaymentScreen from './screens/PaymentScreen.js';
-import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
-import OrderScreen from './screens/OrderScreen.js';
+import HomeScreen from './screens/HomeScreen';
+import Error404Screen from './screens/Error404Screen';
+import ProductScreen from './screens/ProductScreen';
+import {parseRequestUrl, showLoading, hideLoading} from './utils' ;
+import CartScreen from './screens/CartScreen';
+import SigninScreen from './screens/SigninScreen';
+import Header from './components/Header';
+import RegisterScreen from './screens/RegisterScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import ShippingScreen from './screens/ShippingScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen';
+import DashBoardScreen from './screens/DashBoardScreen';
+import ProductListScreen from './screens/ProductListScreen';
 
     const routes = {
         '/': HomeScreen,
+        '/dashboard': DashBoardScreen,
         '/products/:id': ProductScreen,
         '/order/:id': OrderScreen,
         '/cart/:id': CartScreen,
@@ -24,6 +27,7 @@ import OrderScreen from './screens/OrderScreen.js';
         '/shipping': ShippingScreen,
         '/payment': PaymentScreen,
         '/placeorder': PlaceOrderScreen,
+        '/productlist': ProductListScreen,
     }
     const router = async () => {
         showLoading();

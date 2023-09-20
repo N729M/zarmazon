@@ -1,4 +1,4 @@
-import { update } from "../api";
+import { getMYorders, update } from "../api";
 import { getUserInfo, setUserInfo, clearUser } from "../localStorage";
 import { showLoading, hideLoading, showMessage } from "../utils";
 
@@ -27,12 +27,15 @@ const ProfileScreen = {
             }
         });
     },
-    render: ()=>{
+    render: async ()=>{
         const {name, email} = getUserInfo();
         if(!name){
             document.location.hash='/';
         }
+        const orders = await getMYorders();
     return  `
+    <div class="content profile">
+        <div class="profile-info">
         <div class="form-container">
             <form id="profileForm" class="in-fooormer">
                 <ul class="form-items">
@@ -48,13 +51,47 @@ const ProfileScreen = {
                     <li><label for="password">Mou de passe</label>
                     <input type="password" id="password" name="password"/>
                     </li>
-                   
+                
                     <li><button type="submit" class="primary">Mettre à jour</button></li>
                 
                     <li><button type="button" id="signout-button" class="secondary">Deconnexion</button></li>
-                    </ul>
-                </form>
-            </div>
+                </ul>
+            </form>
+        </div>
+        </div>
+        <div class="profile-orders">
+            <h2>Historique des commandes </h2>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                    <th>Paid</th>
+                    <th>Delivered</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                ${orders.length ===0 ? `<tr><td colspan="6">PAs de commande</td></tr>`:
+                orders.map(order => `
+                <tr>
+                    <td>${order._id}</td>
+                    <td>${order.createdAt}</td>
+                    <td>${order.totalPrice}</td>
+                    <td>${order.paidAt || 'No'}</td>
+                    <td>${order.deliveredAt || 'No'}</td>
+                    <td><a href="/#/order/${order._id}">Details</a></td>
+                    
+                </tr>
+                `).join('\n') // pour se débarasser des virgules entre les props de l'objet
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        
         `;
     },
 }

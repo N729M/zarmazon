@@ -1,5 +1,5 @@
 const CheckoutSteps = {
-    render: (props) =>{
+    render: (props) => {
         return `
             <div class="checkout-steps">
                 <div class="${props.step1}? 'active' : '' ">Sign In</div>
@@ -9,6 +9,6 @@ const CheckoutSteps = {
             </div>
         `;
     },
-}
+};
  
 export default CheckoutSteps;
